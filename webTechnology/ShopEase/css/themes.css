@@ -1,0 +1,267 @@
+:root,
+:root[data-appearance="system"] {
+  color-scheme: light dark;
+}
+
+:root[data-appearance="light"] {
+  color-scheme: light;
+}
+
+:root[data-appearance="dark"] {
+  color-scheme: dark;
+}
+
+:root {
+  --color-danger: light-dark(#b3263e, #ff8da1);
+  --color-success: light-dark(#23783a, #7bd88f);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 3.5rem;
+
+  --container-width: 70rem;
+  --transition-fast: 160ms ease;
+
+  --awning-h: 1.25rem;
+}
+
+:root,
+[data-mode="normal"] {
+  --color-background: light-dark(#edf2ec, #0f1815);
+  --color-surface: light-dark(#fbfdfa, #17231f);
+  --color-surface-2: light-dark(#e1ebe2, #1f2f2a);
+  --color-text: light-dark(#1d2a24, #e7f0eb);
+  --color-text-muted: light-dark(#55665d, #9cb0a6);
+  --color-border: light-dark(#cad8cd, #2b3f38);
+  --color-edge: var(--color-border);
+  --color-primary: light-dark(#2d6a55, #7fcbae);
+  --color-on-primary: light-dark(#ffffff, #0b1e17);
+  --color-accent: light-dark(#e7a33e, #f0b45a);
+  --color-on-accent: #2b1d06;
+
+  --tint-1: light-dark(#d3e6de, #1c3a31);
+  --tint-2: light-dark(#f3e2c6, #3a3122);
+  --tint-3: light-dark(#e3daf0, #2e2842);
+
+  --art-1: light-dark(#2d6a55, #7fcbae);
+  --art-2: light-dark(#e7a33e, #f0b45a);
+  --art-3: light-dark(#8db9d6, #7dafd0);
+
+  --font-heading: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-weight: 400;
+  --heading-tracking: -0.01em;
+  --heading-scale: 1;
+  --body-scale: 1;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.7rem;
+  --radius-lg: 1.1rem;
+  --radius-pill: 999px;
+
+  --stroke: 1px;
+  --shadow-card:
+    0 1px 2px light-dark(rgb(29 42 36 / 0.06), rgb(0 0 0 / 0.3)),
+    0 12px 24px -16px light-dark(rgb(29 42 36 / 0.28), rgb(0 0 0 / 0.7));
+  --shadow-raised:
+    0 2px 4px light-dark(rgb(29 42 36 / 0.08), rgb(0 0 0 / 0.3)),
+    0 18px 30px -16px light-dark(rgb(29 42 36 / 0.36), rgb(0 0 0 / 0.8));
+  --btn-shadow: none;
+  --btn-shadow-hover: none;
+  --btn-shift: 0 0;
+
+  --awning-a: var(--color-primary);
+  --awning-b: var(--color-surface);
+  --page-pattern: none;
+  --page-pattern-size: auto;
+  --tilt-a: 0deg;
+  --tilt-b: 0deg;
+}
+
+[data-mode="bubblegum"] {
+  --color-background: light-dark(#ffe3ee, #26102e);
+  --color-surface: light-dark(#fff7fa, #34173f);
+  --color-surface-2: light-dark(#ffd0e3, #43204f);
+  --color-text: light-dark(#3b1346, #ffe9f3);
+  --color-text-muted: light-dark(#764582, #d9a9c9);
+  --color-border: light-dark(#f2a9c8, #5a2f68);
+  --color-edge: light-dark(#3b1346, #ffb3d6);
+  --color-primary: light-dark(#c9176a, #ff7ab8);
+  --color-on-primary: light-dark(#ffffff, #2a0f33);
+  --color-accent: #ffd23f;
+  --color-on-accent: #3b1346;
+
+  --tint-1: light-dark(#ffc2dc, #4a1f52);
+  --tint-2: light-dark(#c9f0e0, #1f4a44);
+  --tint-3: light-dark(#dcd2ff, #35295e);
+
+  --art-1: light-dark(#ff5ca8, #ff7ab8);
+  --art-2: #ffd23f;
+  --art-3: light-dark(#5fd8b6, #6fe0c5);
+
+  --font-heading: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-weight: 600;
+  --heading-tracking: 0;
+
+  --radius-sm: 0.7rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.7rem;
+
+  --stroke: 2.5px;
+  --shadow-card: 5px 5px 0 var(--color-edge);
+  --shadow-raised: 8px 8px 0 var(--color-edge);
+  --btn-shadow: 3px 3px 0 var(--color-edge);
+  --btn-shadow-hover: 1px 1px 0 var(--color-edge);
+  --btn-shift: 2px 2px;
+  --btn-edge: var(--color-edge);
+
+  --awning-a: var(--color-primary);
+  --awning-b: var(--color-accent);
+}
+
+[data-mode="notebook"] {
+  --color-background: light-dark(#f5f5ee, #1e2b27);
+  --color-surface: light-dark(#ffffff, #263630);
+  --color-surface-2: light-dark(#eaf0f7, #2e413a);
+  --color-text: light-dark(#1f2a44, #f2f4ec);
+  --color-text-muted: light-dark(#4f5a75, #b5c4bb);
+  --color-border: light-dark(#c3d0e3, #3b5249);
+  --color-edge: light-dark(#1f2a44, #e9efe6);
+  --color-primary: light-dark(#2f4ba8, #9cc7ff);
+  --color-on-primary: light-dark(#ffffff, #14233a);
+  --color-accent: light-dark(#f2c230, #f7dc6f);
+  --color-on-accent: #1f2a44;
+  --color-danger: light-dark(#c0392b, #ff9a8d);
+
+  --tint-1: light-dark(#fff3a8, #4a4627);
+  --tint-2: light-dark(#ffd9d9, #4a2f2f);
+  --tint-3: light-dark(#cfe8ff, #26405a);
+
+  --art-1: light-dark(#2f4ba8, #9cc7ff);
+  --art-2: light-dark(#f2c230, #f7dc6f);
+  --art-3: light-dark(#e86a6a, #ff9a8d);
+
+  --font-heading: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  --font-body: "Patrick Hand", "Segoe Print", "Comic Sans MS", cursive;
+  --heading-weight: 700;
+  --heading-tracking: 0;
+  --heading-scale: 1.3;
+  --body-scale: 1.1;
+
+  --radius-sm: 5px 9px 6px 10px / 9px 6px 10px 5px;
+  --radius-md: 8px 14px 9px 15px / 14px 9px 15px 8px;
+  --radius-lg: 10px 18px 12px 20px / 18px 12px 20px 10px;
+
+  --stroke: 1.75px;
+  --shadow-card: 2px 3px 0 light-dark(rgb(31 42 68 / 0.22), rgb(0 0 0 / 0.35));
+  --shadow-raised: 4px 6px 0 light-dark(rgb(31 42 68 / 0.28), rgb(0 0 0 / 0.45));
+  --btn-shadow: 2px 2px 0 var(--color-edge);
+  --btn-shadow-hover: 0 0 0 var(--color-edge);
+  --btn-shift: 2px 2px;
+  --btn-edge: var(--color-edge);
+
+  --awning-a: var(--color-accent);
+  --awning-b: var(--color-surface);
+  --page-pattern: repeating-linear-gradient(
+    to bottom,
+    transparent 0 1.7rem,
+    light-dark(rgb(86 128 196 / 0.22), rgb(255 255 255 / 0.07)) 1.7rem
+      calc(1.7rem + 1px)
+  );
+  --tilt-a: -0.7deg;
+  --tilt-b: 0.6deg;
+}
+
+[data-mode="cafe"] {
+  --color-background: light-dark(#e8ddd2, #1b1411);
+  --color-surface: light-dark(#f7f1ea, #271d18);
+  --color-surface-2: light-dark(#dccdbe, #33261f);
+  --color-text: light-dark(#2b1f19, #f1e5d9);
+  --color-text-muted: light-dark(#685548, #b6a090);
+  --color-border: light-dark(#cdbbaa, #433329);
+  --color-edge: var(--color-border);
+  --color-primary: light-dark(#5e3a2b, #e0ae86);
+  --color-on-primary: light-dark(#fbf4ec, #26170f);
+  --color-accent: light-dark(#d49a3f, #e9b659);
+  --color-on-accent: #2b1f19;
+  --color-danger: light-dark(#a82a3b, #ff9aa7);
+  --color-success: light-dark(#3c7a3f, #8bd48f);
+
+  --tint-1: light-dark(#e3cdb5, #3b2a20);
+  --tint-2: light-dark(#d5dec8, #2b3526);
+  --tint-3: light-dark(#ead3d0, #3b2828);
+
+  --art-1: light-dark(#8a5a44, #e0ae86);
+  --art-2: light-dark(#d49a3f, #e9b659);
+  --art-3: light-dark(#7e9b7a, #93b58e);
+
+  --font-heading: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-weight: 400;
+  --heading-tracking: 0;
+
+  --radius-sm: 0.2rem;
+  --radius-md: 0.35rem;
+  --radius-lg: 0.6rem;
+
+  --shadow-card:
+    0 2px 0 var(--color-border),
+    0 14px 22px -16px light-dark(rgb(43 31 25 / 0.5), rgb(0 0 0 / 0.8));
+  --shadow-raised:
+    0 3px 0 var(--color-border),
+    0 20px 28px -16px light-dark(rgb(43 31 25 / 0.6), rgb(0 0 0 / 0.9));
+
+  --awning-a: var(--color-primary);
+  --awning-b: light-dark(#e9d9c6, #3b2a20);
+}
+
+[data-mode="seaside"] {
+  --color-background: light-dark(#e2f0f2, #0a1b24);
+  --color-surface: light-dark(#f8fdfd, #11262f);
+  --color-surface-2: light-dark(#cde5e9, #18363f);
+  --color-text: light-dark(#0f2d38, #e3f3f6);
+  --color-text-muted: light-dark(#476874, #93b4bd);
+  --color-border: light-dark(#b5d3d9, #234552);
+  --color-edge: var(--color-border);
+  --color-primary: light-dark(#0f6c8c, #6ccbe3);
+  --color-on-primary: light-dark(#ffffff, #06222b);
+  --color-accent: light-dark(#ff8a5c, #ff9e75);
+  --color-on-accent: #2d1308;
+  --color-danger: light-dark(#b42343, #ff8da1);
+
+  --tint-1: light-dark(#cfe7f0, #16394a);
+  --tint-2: light-dark(#ffe0ce, #3c2a22);
+  --tint-3: light-dark(#e4edc9, #2c3a22);
+
+  --art-1: light-dark(#0f6c8c, #6ccbe3);
+  --art-2: light-dark(#ff8a5c, #ff9e75);
+  --art-3: light-dark(#f2d16b, #e9cb6b);
+
+  --font-heading: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-weight: 700;
+  --heading-tracking: -0.02em;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.9rem;
+  --radius-lg: 1.4rem;
+
+  --shadow-card: 0 14px 26px -18px
+    light-dark(rgb(15 108 140 / 0.55), rgb(0 0 0 / 0.8));
+  --shadow-raised: 0 22px 34px -18px
+    light-dark(rgb(15 108 140 / 0.65), rgb(0 0 0 / 0.9));
+
+  --awning-a: var(--color-primary);
+  --awning-b: light-dark(#ffffff, #d9f1f6);
+}
+
+:root {
+  --art-ink: var(--color-text);
+  --art-light: var(--color-surface);
+}

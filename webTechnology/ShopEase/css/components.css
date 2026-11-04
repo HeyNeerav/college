@@ -1,0 +1,296 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-block-size: 2.7rem;
+  padding: 0 1.25rem;
+  background: var(--color-primary);
+  border: var(--stroke) solid var(--btn-edge, var(--color-primary));
+  border-radius: var(--radius-md);
+  box-shadow: var(--btn-shadow);
+  color: var(--color-on-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    translate 90ms ease,
+    box-shadow 90ms ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 88%, var(--color-text));
+    box-shadow: var(--btn-shadow-hover);
+    translate: var(--btn-shift);
+  }
+
+  &:active {
+    translate: 0 1px;
+  }
+}
+
+.button--outline {
+  background: var(--color-surface);
+  border-color: var(--btn-edge, var(--color-border));
+  color: var(--color-text);
+
+  &:hover {
+    background: var(--color-surface-2);
+  }
+}
+
+.button--accent {
+  background: var(--color-accent);
+  border-color: var(--btn-edge, var(--color-accent));
+  color: var(--color-on-accent);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-accent) 88%, var(--color-text));
+  }
+}
+
+.button--small {
+  min-block-size: 2.25rem;
+  padding: 0 0.9rem;
+  font-size: 0.88rem;
+}
+
+.button--block {
+  inline-size: 100%;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-block-size: 2.4rem;
+  min-inline-size: 2.4rem;
+  padding: 0 0.7rem;
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--btn-edge, var(--color-border));
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+
+  &:hover,
+  &[aria-expanded="true"] {
+    background: var(--color-surface-2);
+  }
+
+  svg {
+    inline-size: 1.2rem;
+    block-size: 1.2rem;
+  }
+}
+
+.cart-badge {
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 1.3rem;
+  block-size: 1.3rem;
+  padding: 0 0.35rem;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+  color: var(--color-on-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+  margin-block-end: var(--space-3);
+  padding: 0;
+  border: 0;
+  font-weight: 700;
+
+  :is(input:not([type="radio"], [type="range"]), textarea, select) {
+    inline-size: 100%;
+    padding: 0.65rem 0.85rem;
+    background: var(--color-surface);
+    border: var(--stroke) solid var(--btn-edge, var(--color-border));
+    border-radius: var(--radius-md);
+    font-weight: 400;
+
+    &:focus-visible {
+      outline-offset: 1px;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: var(--color-danger);
+    }
+  }
+}
+
+.field__error {
+  min-block-size: 1.2em;
+  color: var(--color-danger);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0 var(--space-4);
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-4);
+}
+
+.form-status {
+  margin-block-start: var(--space-3);
+  font-weight: 700;
+}
+
+.form-status--success {
+  color: var(--color-success);
+}
+
+.form-status--error {
+  color: var(--color-danger);
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-block-end: var(--space-4);
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: var(--stroke) solid var(--btn-edge, var(--color-border));
+    border-radius: var(--radius-md);
+    cursor: pointer;
+  }
+
+  input {
+    accent-color: var(--color-primary);
+  }
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+  margin-block-end: var(--space-5);
+  padding: 0.25rem;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+
+  button {
+    min-block-size: 2.4rem;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-weight: 700;
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+
+    &[aria-selected="true"] {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+  }
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  inline-size: max-content;
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--btn-edge, var(--color-border));
+  border-radius: var(--radius-sm);
+}
+
+.stepper__button {
+  inline-size: 1.9rem;
+  block-size: 1.9rem;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  line-height: 1;
+
+  &:hover {
+    background: var(--color-surface-2);
+  }
+}
+
+.stepper__value {
+  min-inline-size: 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.stepper--large {
+  .stepper__button {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+  }
+
+  .stepper__value {
+    min-inline-size: 2.5rem;
+    font-size: 1.05rem;
+  }
+}
+
+.rating-stars {
+  color: var(--color-accent);
+  letter-spacing: 2px;
+
+  -webkit-text-stroke: 0.6px var(--color-text);
+}
+
+.star-input {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    opacity: 0;
+  }
+
+  label {
+    color: var(--color-border);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  input:checked + label,
+  input:checked + label ~ label,
+  label:hover,
+  label:hover ~ label {
+    color: var(--color-accent);
+  }
+
+  input:focus-visible + label {
+    outline: 3px solid var(--color-primary);
+  }
+}

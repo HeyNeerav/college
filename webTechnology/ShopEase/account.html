@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Log in, sign up and manage your ShopEase account."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>Account | ShopEase</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <script src="js/theme-init.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Caveat:wght@500..700&family=DM+Serif+Display&family=Figtree:wght@400..800&family=Fredoka:wght@500..700&family=Nunito:wght@400..800&family=Patrick+Hand&family=Young+Serif&display=swap"
+    />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/widgets.css" />
+  </head>
+  <body data-page="account">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="awning" aria-hidden="true"></div>
+      <div class="container site-header__bar">
+        <a class="site-logo" href="index.html"
+          ><svg
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 11h22l-1.6 15a2 2 0 0 1-2 1.8H8.6a2 2 0 0 1-2-1.8z" />
+            <path d="M11 14V9.5a5 5 0 0 1 10 0V14" />
+            <path d="M12.5 19.5c1 1.6 6 1.6 7 0" /></svg
+          ><b>Shop<span>Ease</span></b></a
+        >
+        <nav class="site-nav" aria-label="Main">
+          <a class="site-nav__link" href="index.html">Home</a>
+          <a class="site-nav__link" href="products.html">Products</a>
+          <details class="site-nav__dropdown">
+            <summary class="site-nav__link">Categories</summary>
+            <div class="site-nav__menu">
+              <a
+                class="site-nav__link"
+                href="products.html?category=Electronics"
+                >Electronics</a
+              >
+              <a class="site-nav__link" href="products.html?category=Clothing"
+                >Clothing</a
+              >
+              <a
+                class="site-nav__link"
+                href="products.html?category=Accessories"
+                >Accessories</a
+              >
+            </div>
+          </details>
+          <a class="site-nav__link" href="about.html">About Us</a>
+          <a class="site-nav__link" href="contact.html">Contact Us</a>
+        </nav>
+        <div class="site-header__tools">
+          <button
+            class="icon-button"
+            id="theme-menu-toggle"
+            type="button"
+            aria-label="Choose a look"
+            aria-expanded="false"
+            aria-controls="theme-panel"
+          ></button>
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch colours"
+          ></button>
+          <a
+            class="icon-button"
+            id="wishlist-link"
+            href="wishlist.html"
+            aria-label="Wishlist"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 20.5s-8-4.9-8-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 6.1-8 11-8 11z"
+              />
+            </svg>
+            <span class="cart-badge" id="wishlist-count">0</span>
+          </a>
+          <a class="icon-button" id="account-link" href="account.html"
+            >Log in</a
+          >
+          <button
+            class="icon-button"
+            id="cart-toggle"
+            type="button"
+            aria-label="Open cart"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 4h2.2l2.1 10.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.8L19.5 8H6.3"
+              />
+              <circle cx="9.5" cy="19" r="1.4" />
+              <circle cx="16.5" cy="19" r="1.4" />
+            </svg>
+            <span class="cart-badge" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page" id="main">
+      <div class="container section">
+        <div id="auth-section">
+          <div class="panel auth-card">
+            <h1 id="auth-title">Welcome back</h1>
+            <p id="auth-intro"></p>
+            <div class="tabs" role="group" aria-label="Account options">
+              <button type="button" data-tab="login" aria-selected="true">
+                Log in
+              </button>
+              <button type="button" data-tab="signup" aria-selected="false">
+                Sign up
+              </button>
+            </div>
+
+            <form id="login-form" novalidate>
+              <label class="field"
+                >Email Address
+                <input
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="asha@example.com"
+                />
+                <span class="field__error" data-error-for="email"></span>
+              </label>
+              <label class="field"
+                >Password
+                <input
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                />
+                <span class="field__error" data-error-for="password"></span>
+              </label>
+              <p class="form-status" data-form-status role="alert"></p>
+              <button class="button button--block" type="submit">Log in</button>
+            </form>
+
+            <form id="signup-form" novalidate hidden>
+              <label class="field"
+                >Full Name
+                <input name="fullName" type="text" autocomplete="name" />
+                <span class="field__error" data-error-for="fullName"></span>
+              </label>
+              <label class="field"
+                >Email Address
+                <input name="email" type="email" autocomplete="email" />
+                <span class="field__error" data-error-for="email"></span>
+              </label>
+              <label class="field"
+                >Password (6+ characters)
+                <input
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                />
+                <span class="field__error" data-error-for="password"></span>
+              </label>
+              <label class="field"
+                >Confirm Password
+                <input
+                  name="confirmPassword"
+                  type="password"
+                  autocomplete="new-password"
+                />
+                <span
+                  class="field__error"
+                  data-error-for="confirmPassword"
+                ></span>
+              </label>
+              <p class="form-status" data-form-status role="alert"></p>
+              <button class="button button--block" type="submit">
+                Create account
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div id="profile-section" hidden>
+          <header class="profile-header">
+            <div class="avatar" id="profile-avatar" aria-hidden="true"></div>
+            <div>
+              <h1 id="profile-name"></h1>
+              <p id="profile-email"></p>
+            </div>
+            <button class="button button--outline" id="sign-out" type="button">
+              Log out
+            </button>
+          </header>
+          <div class="split">
+            <section class="panel" aria-labelledby="orders-title">
+              <h2 id="orders-title">Orders</h2>
+              <div id="order-history"></div>
+            </section>
+            <form class="panel" id="profile-form" novalidate>
+              <h2>Your details</h2>
+              <label class="field"
+                >Full Name
+                <input name="fullName" type="text" autocomplete="name" />
+                <span class="field__error" data-error-for="fullName"></span>
+              </label>
+              <label class="field"
+                >Phone Number
+                <input name="phone" type="tel" autocomplete="tel" />
+                <span class="field__error" data-error-for="phone"></span>
+              </label>
+              <label class="field"
+                >Street Address
+                <input
+                  name="address"
+                  type="text"
+                  autocomplete="street-address"
+                />
+                <span class="field__error" data-error-for="address"></span>
+              </label>
+              <label class="field"
+                >City
+                <input name="city" type="text" autocomplete="address-level2" />
+                <span class="field__error" data-error-for="city"></span>
+              </label>
+              <label class="field"
+                >PIN Code
+                <input
+                  name="postalCode"
+                  type="text"
+                  autocomplete="postal-code"
+                />
+                <span class="field__error" data-error-for="postalCode"></span>
+              </label>
+              <label class="field"
+                >State
+                <input name="state" type="text" autocomplete="address-level1" />
+                <span class="field__error" data-error-for="state"></span>
+              </label>
+              <p class="form-status" data-form-status role="alert"></p>
+              <button class="button" type="submit">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div>
+          <p class="site-footer__name">ShopEase</p>
+          <p>Thanks for stopping by.</p>
+          <p class="site-footer__hours">
+            12 Market Road, Ludhiana. Open Mon–Sat, 10 am to 7 pm.
+          </p>
+        </div>
+        <nav aria-labelledby="footer-shop">
+          <h2 id="footer-shop">Shop</h2>
+          <ul class="site-footer__links">
+            <li><a href="products.html">All products</a></li>
+            <li>
+              <a href="products.html?category=Electronics">Electronics</a>
+            </li>
+            <li><a href="products.html?category=Clothing">Clothing</a></li>
+            <li>
+              <a href="products.html?category=Accessories">Accessories</a>
+            </li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="footer-social">
+          <h2 id="footer-social">Say hello</h2>
+          <ul class="site-footer__links">
+            <li>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://x.com/" target="_blank" rel="noopener noreferrer"
+                >X</a
+              >
+            </li>
+            <li><a href="contact.html">Write to us</a></li>
+          </ul>
+        </nav>
+        <p class="site-footer__legal">
+          &copy; 2026 ShopEase. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/widgets.js"></script>
+    <script src="js/pages-shop.js"></script>
+    <script src="js/pages-forms.js"></script>
+  </body>
+</html>

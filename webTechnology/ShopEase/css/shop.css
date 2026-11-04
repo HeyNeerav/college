@@ -1,0 +1,412 @@
+.art {
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--art-ink);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  .c1 {
+    fill: var(--art-1);
+  }
+
+  .c2 {
+    fill: var(--art-2);
+  }
+
+  .c3 {
+    fill: var(--art-3);
+  }
+
+  .lt {
+    fill: var(--art-light);
+  }
+
+  .ink {
+    fill: var(--art-ink);
+  }
+
+  .thin {
+    stroke-width: 1.6;
+  }
+
+  .nostroke {
+    stroke: none;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: var(--space-6);
+
+  @media (max-width: 30rem) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+}
+
+.product-card {
+  --tile: var(--tint-1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--color-edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition:
+    translate var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &[data-category="Clothing"] {
+    --tile: var(--tint-2);
+  }
+
+  &[data-category="Accessories"] {
+    --tile: var(--tint-3);
+  }
+
+  &:nth-child(odd) {
+    rotate: var(--tilt-a);
+  }
+
+  &:nth-child(even) {
+    rotate: var(--tilt-b);
+  }
+
+  &:hover {
+    translate: 0 -4px;
+    box-shadow: var(--shadow-raised);
+  }
+}
+
+[data-mode="notebook"] .product-card::before {
+  content: "";
+  position: absolute;
+  inset: -0.7rem auto auto 50%;
+  inline-size: 4.2rem;
+  block-size: 1.3rem;
+  background: light-dark(rgb(242 194 48 / 0.7), rgb(247 220 111 / 0.35));
+  border-inline: 2px dotted
+    light-dark(rgb(31 42 68 / 0.2), rgb(255 255 255 / 0.25));
+  rotate: -3deg;
+  translate: -50% 0;
+}
+
+.product-card__media {
+  position: relative;
+  background: var(--tile);
+  border-radius: var(--radius-md);
+}
+
+.product-card__image {
+  display: block;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  aspect-ratio: 1 / 0.86;
+
+  .art {
+    transition: scale 200ms ease;
+  }
+}
+
+.product-card:hover .product-card__image .art {
+  scale: 1.05;
+}
+
+.price-tag {
+  position: absolute;
+  inset: auto auto var(--space-2) var(--space-2);
+  padding: 0.2rem 0.75rem 0.2rem 1.4rem;
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--color-edge);
+  border-radius: 0.4rem var(--radius-pill) var(--radius-pill) 0.4rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 1.4;
+  rotate: -3deg;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 0.5rem;
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
+    background: var(--tile, var(--color-surface-2));
+    border: 1px solid var(--color-edge);
+    border-radius: 50%;
+    translate: 0 -50%;
+  }
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2) var(--space-2);
+}
+
+.product-card__title {
+  font-family: var(--font-heading);
+  font-size: calc(1.25rem * var(--heading-scale));
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-tracking);
+  line-height: 1.2;
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline 0.12em var(--color-accent);
+      text-underline-offset: 0.2em;
+    }
+  }
+}
+
+.product-card__description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.product-card__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-block-start: auto;
+  padding-block-start: var(--space-3);
+
+  @media (max-width: 30rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.price {
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  gap: var(--space-7);
+  align-items: start;
+
+  @media (max-width: 50rem) {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.results-count {
+  margin-block-end: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.filters {
+  position: sticky;
+  inset-block-start: 5.5rem;
+  padding: var(--space-1) var(--space-4) var(--space-4);
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--color-edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+
+  @media (max-width: 50rem) {
+    position: static;
+  }
+}
+
+.filters__toggle {
+  display: none;
+  inline-size: 100%;
+  padding-block: var(--space-3);
+  background: none;
+  border: 0;
+  font-weight: 700;
+  text-align: start;
+
+  &::after {
+    content: "+";
+    float: inline-end;
+  }
+
+  @media (max-width: 50rem) {
+    display: block;
+  }
+}
+
+.filters.is-open .filters__toggle::after {
+  content: "−";
+}
+
+.filters__body {
+  @media (max-width: 50rem) {
+    display: none;
+
+    .filters.is-open & {
+      display: block;
+    }
+  }
+}
+
+.filters__group {
+  padding-block: var(--space-3);
+  border-block-end: 1px dashed var(--color-border);
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-size: calc(1.1rem * var(--heading-scale));
+    font-weight: var(--heading-weight);
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      color: var(--color-text-muted);
+    }
+  }
+
+  &[open] summary::after {
+    content: "−";
+  }
+
+  > :not(summary) {
+    margin-block-start: var(--space-3);
+  }
+
+  :is(input[type="search"], select) {
+    inline-size: 100%;
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border: var(--stroke) solid var(--btn-edge, var(--color-border));
+    border-radius: var(--radius-md);
+  }
+
+  input[type="range"] {
+    inline-size: 100%;
+    accent-color: var(--color-primary);
+  }
+
+  output {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  cursor: pointer;
+
+  input {
+    accent-color: var(--color-primary);
+  }
+}
+
+.filter-option__count {
+  margin-inline-start: auto;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+}
+
+.filters__clear {
+  inline-size: 100%;
+  margin-block-start: var(--space-4);
+}
+
+.modal {
+  inline-size: min(27rem, 100% - 2rem);
+  padding: 0;
+  margin: auto;
+  background: var(--color-surface);
+  border: var(--stroke) solid var(--color-edge);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-raised);
+  color: var(--color-text);
+  text-align: center;
+
+  &::backdrop {
+    background: rgb(20 20 20 / 0.55);
+  }
+}
+
+.modal__content {
+  padding: var(--space-5);
+}
+
+.modal__close {
+  float: inline-end;
+}
+
+.modal__image {
+  display: grid;
+  place-items: center;
+  margin-block: var(--space-5) var(--space-4);
+  padding: var(--space-6);
+  background: var(--tile, var(--tint-1));
+  border-radius: var(--radius-md);
+
+  .art {
+    inline-size: 9rem;
+    block-size: 8rem;
+  }
+
+  &[data-category="Clothing"] {
+    --tile: var(--tint-2);
+  }
+
+  &[data-category="Accessories"] {
+    --tile: var(--tint-3);
+  }
+}
+
+#product-modal-body {
+  h2 {
+    margin-block-end: var(--space-1);
+  }
+
+  p {
+    margin-block-end: var(--space-3);
+  }
+}
+
+.toast {
+  position: fixed;
+  inset-block-end: var(--space-6);
+  inset-inline-start: 50%;
+  z-index: 60;
+  max-inline-size: calc(100vw - 2rem);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-text);
+  border-radius: var(--radius-md);
+  color: var(--color-background);
+  font-weight: 700;
+  translate: -50% 8rem;
+  visibility: hidden;
+  transition:
+    translate 0.3s ease,
+    visibility 0.3s;
+
+  &.is-visible {
+    translate: -50% 0;
+    visibility: visible;
+  }
+}
